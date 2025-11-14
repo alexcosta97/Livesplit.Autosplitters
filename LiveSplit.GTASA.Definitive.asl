@@ -766,7 +766,7 @@ init
 	if (version == "1.0.113.21181")
 	{
 		// Hardcoded values for version 1.0.113.21181
-		vars.DebugOutput("Using hardcoded addresses for version 1.0.113.21181");
+		
 		statBaseAddr = getAddressFromPattern(16, "?? 8b c3 ff ?? ?? ?? ?? ?? eb ?? 8b d3 ?? 8d 0d ?? ?? ?? ?? e8 ?? ?? ?? ??");
 		scriptBaseAddr = (int)0x51BEAE4;
 		startAddr = getAddressFromPattern(9, "8b 05 ?? ?? ?? ?? ?? 8b ?? ?? ?? ?? ?? 83 f8 08 73 ?? ?? c6 ?? ?? ?? ?? ?? 01");
@@ -780,7 +780,7 @@ init
 	else
 	{
 		// Pattern scanning for all other versions
-		vars.DebugOutput("Using pattern scanning for version " + version);
+		
 		statBaseAddr = getAddressFromPattern(16, "?? 8b c3 ff ?? ?? ?? ?? ?? eb ?? 8b d3 ?? 8d 0d ?? ?? ?? ?? e8 ?? ?? ?? ??");
 		scriptBaseAddr = getAddressFromPattern(5, "74 ?? ?? 8d 05 ?? ?? ?? ?? ?? 83 3c ?? 01 74 ??");
 		startAddr = getAddressFromPattern(9, "8b 05 ?? ?? ?? ?? ?? 8b ?? ?? ?? ?? ?? 83 f8 08 73 ?? ?? c6 ?? ?? ?? ?? ?? 01");
@@ -791,17 +791,7 @@ init
 		tagsAddr = getAddressFromPattern(2, "8b 3d ?? ?? ?? ?? ?? 8d 15 ?? ?? ?? ?? 8b 1d ?? ?? ?? ?? 66 ?? 89 2d ?? ?? ?? ?? e8");
 		truckingOffset = 9581;
 	}
-
-	// Debug output for all addresses
-	vars.DebugOutput("Stat Base Address: 0x"+statBaseAddr.ToString("X"));
-	vars.DebugOutput("Script Base Address: 0x"+scriptBaseAddr.ToString("X"));
-	vars.DebugOutput("Start Address: 0x"+startAddr.ToString("X"));
-	vars.DebugOutput("Start Offset: 0x"+startOffset.ToString("X"));
-	vars.DebugOutput("Thread Address: 0x"+threadAddr.ToString("X"));
-	vars.DebugOutput("Loading Address: 0x"+loadingAddr.ToString("X"));
-	vars.DebugOutput("Play Time Address: 0x"+playTimeAddr.ToString("X"));
-	vars.DebugOutput("Tags Address: 0x"+tagsAddr.ToString("X"));
-	vars.DebugOutput("Trucking Offset: "+truckingOffset);
+	
 
 	// Store trucking offset for later use
 	vars.truckingOffset = truckingOffset;
